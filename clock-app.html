@@ -38,7 +38,9 @@
 
       
       .kinetic {
-	  position: relative;
+	  position: absolute;
+	  top: 20px;
+	  left: 20px;
 
       }
 
@@ -47,12 +49,12 @@
 	  content: '';
 	  width: 0;
 	  height: 0;
-	  border: 300px solid transparent;
-	  border-bottom-color: #e73c7e;
-	  opacity: 0.1;
+	  border: 20px solid transparent;
+	  border-bottom-color: white;
+	  opacity: 0.4;
 	  position: absolute;
-	  top: -200px;
-	  left: -300px;
+	  top: 0;
+	  left: 0;
 	  animation: rotateA 2s linear infinite 0.5s;
       }
 
@@ -91,21 +93,39 @@
 
       
       .clock {
+	  font-family: sans;
+	  padding: 100px;
 	  color: snow;
 	  font-weight: bold;
 	  font-size: 13vw;
 	  opacity: 0.9;
 	  text-shadow: 0 0 10px rgba(255,255,255,0.8); 
-	  animation: gravity 1s  alternate infinite;
+	  animation: gravity 2s  alternate infinite;
       }
 
       @keyframes gravity {
 	  0% {
-	      transform: translateY(0);
+	      transform: scale(1) translateY(0);
 	  }
 
 	  100% {
-	      transform: translateY(-5px);
+	      transform: scale(1.02) translateY(-5px);
+	  }
+      }
+
+      .circle {
+	  animation: grow 3s linear;
+	  border: 1px solid rgba(255, 255, 255, 0.2);
+	  border-radius: 50%;
+	  position: absolute;
+	  height: 30px;
+	  width: 30px;
+      }
+
+      @keyframes grow {
+	  to {
+              opacity: 0;
+	      transform: scale(5);
 	  }
       }
 
@@ -118,7 +138,21 @@
     <div class="kinetic"></div>
     <div class="clock"></div>
 
+    <script>
+      function createCircle() {
+      const circleEl = document.createElement('div')
+      circleEl.classList.add('circle')
+      circleEl.style.top = Math.random() * innerHeight + "px";
+      circleEl.style.left = Math.random() * innerWidth + "px";
+      document.body.appendChild(circleEl);
+	
+      setTimeout(() => {
+      circleEl.remove()
+      }, 3000)
+      }
 
+      setInterval(createCircle, 300)
+</script>
 
 
     <script>
