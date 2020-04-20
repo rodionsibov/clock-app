@@ -7,7 +7,7 @@
     <title>Hello, world!</title>
 
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+
 
     
     
@@ -17,13 +17,13 @@
 	  animation: gradient 15s ease infinite;
 	  user-select: none;
 
-	  font-family: 'Roboto', sans-serif;
+	  font-family: sans-serif;
 
 	  display: flex;
 	  align-items: center;
 	  justify-content: center;
 	  height: 100vh;
-	  width: 100wv;
+
 	  margin: 0;
 	  flex-direction: column;
 	  overflow: hidden;
@@ -190,7 +190,8 @@
 	  let time = date.toLocaleTimeString();
 
 
-	  document.querySelector('.clock').textContent = time;
+	  document.querySelector('.clock').innerHTML = `${time}<sup style="font-size: 12px; font-weight: normal; vertical-align: 80px;
+">beta</sup>`;
       }
 
       displayTime();
