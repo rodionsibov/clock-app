@@ -7,12 +7,17 @@
     <title>Hello, world!</title>
 
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
 
+    
+    
       body {
 	  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	  background-size: 400% 400%;
 	  animation: gradient 15s ease infinite;
 	  user-select: none;
+
+	  font-family: 'Roboto', sans-serif;
 
 	  display: flex;
 	  align-items: center;
@@ -38,18 +43,16 @@
 
       
       .kinetic {
-	  position: absolute;
-	  top: 20px;
-	  left: 20px;
+	  position: relative;
+	  left: -30px;
 
       }
 
       .kinetic::after, .kinetic::before {
 
 	  content: '';
-	  width: 0;
-	  height: 0;
-	  border: 20px solid transparent;
+
+	  border: 10px solid transparent;
 	  border-bottom-color: white;
 	  opacity: 0.4;
 	  position: absolute;
@@ -93,7 +96,7 @@
 
       
       .clock {
-	  font-family: sans;
+	  white-space: nowrap;
 	  padding: 100px;
 	  color: snow;
 	  font-weight: bold;
@@ -129,15 +132,40 @@
 	  }
       }
 
+      .footer {
+	  opacity: 0.7;
+	  position: absolute;
+	  bottom: 0;
+	  text-align: center;
+	  padding: 20px;
+	  color: snow;
+      }
+      
+      .footer a {
+	  color: snow;
+      }
+
+      @media screen and (max-width: 360px) {
+	  .footer {
+	   padding: 20px;   
+	  }
+
+      }
+      
     </style>
   </head>
   <body>
 
 
 
-    <div class="kinetic"></div>
-    <div class="clock"></div>
 
+    <div class="clock"></div>
+    <div class="footer">
+    <span class="kinetic"></span>
+    <small>Written, designed, and built by Rodion Sibov, a designer who you can find on <a href="https://github.com/rodionsibov/projects">GitHub </a>, or good old-fashioned <a href="mailto:rodionsibov@gmail.com">Email.</small>
+    </div>
+
+    
     <script>
       function createCircle() {
       const circleEl = document.createElement('div')
