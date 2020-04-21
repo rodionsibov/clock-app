@@ -190,8 +190,7 @@
 	  let time = date.toLocaleTimeString();
 
 
-	  document.querySelector('.clock').innerHTML = `${time.slice(0,9)}<sup style="font-size: 0.4em; vertical-align: top; position: relative;
-left: -10px;">${time.slice(9,11)}</sup>`;
+	  document.querySelector('.clock').innerHTML = time;
       }
 
       displayTime();
