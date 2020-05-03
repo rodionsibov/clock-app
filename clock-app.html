@@ -9,14 +9,12 @@
     <style>
 
 
-      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
 
      body {
 	  margin: 0;
 	  height: 100vh;
 	  text-align: center;
-	  font-family: 'Open Sans', sans-serif;
-
+	  font-family: 'Roboto', sans-serif;
 
      }
       
@@ -33,7 +31,7 @@
 
       
       .circle {
-
+	  
 	  border-radius: 50%;
 	  position: absolute;
 	  height: 20px;
@@ -50,22 +48,33 @@
 	  }
       }
 
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
       .clock {
-	  color: 
-	  font-weight: bold;
-	  font-size: 12vw;
+	  color: #555;
+	  z-index: -100;
+	  user-select: none;
+	  animation: grow 3s infinite alternate;
+	  font-weight: 100;
+	  font-size: 20vw;
 	  margin-top: 200px;
       }
       
-      .footer {
+      @keyframes grow {
+	100% {
+	    transform: scale(1.02);
+	}
+      }
 
+      .footer {
+	  color: #999;
 	  padding: 25px;
 	  position: fixed;
 	  bottom: 10px;
       }
 
-      span {
-	  font-size: 5vw;
+      a {
+	  color: #555;
       }
     </style>
   </head>
@@ -104,16 +113,20 @@
 
 
     <script>
-
+      
       function displayTime() {
-	  let date = new Date();
-	  let time = date.toLocaleTimeString();
-	  console.log(date)
 
-	  document.querySelector('.clock').innerHTML = `${time.slice(0, time.length - 2)}<span>${time.slice(time.length - 2)}</span>`;
+	  const now = new Date();
+	  const hours = now.getHours()
+	  const minutes = now.getMinutes()
+	  const seconds = now.getSeconds()
+
+
+	  document.querySelector('.clock').innerHTML = `${hours}:${minutes}:${seconds}`	      
       }
 
       displayTime();
+      
       const createClock = setInterval(displayTime, 1000);
 
     </script>
