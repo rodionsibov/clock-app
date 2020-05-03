@@ -8,16 +8,37 @@
 
     <style>
           
-    
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+      
      body {
-	  margin: 0;
+	 background: whitesmoke;
+	 margin: 0;
 	  height: 100vh;
 	  text-align: center;
 	  font-family: 'Roboto', sans-serif;
-
      }
       
-      .container {
+
+     .shadow {
+	 color: white;
+	 text-shadow: 
+	     0 1px 0 #ccc, 
+	     0 2px 0 #c9c9c9, 
+	     0 3px 0 #bbb, 
+	     0 4px 0 #b9b9b9, 
+	     0 5px 0 #aaa, 
+	     0 6px 1px rgba(0,0,0,.1), 
+	     0 0 5px rgba(0,0,0,.1), 
+	     0 1px 3px rgba(0,0,0,.3), 
+	     0 3px 5px rgba(0,0,0,.2), 
+	     0 5px 10px rgba(0,0,0,.25), 
+	     0 10px 10px rgba(0,0,0,.2), 
+	     0 20px 20px rgba(0,0,0,.15);
+     }
+
+     
+     .container {
 	  overflow: hidden;
 	  display: flex;
 	  flex-direction: column;
@@ -28,44 +49,14 @@
 
       }
 
-      
-      .circle {
-	  filter: blur(1px);
-	  border-radius: 50%;
-	  position: absolute;
-	  height: 20px;
-	  width: 20px;
-	  animation: grow 3s linear;
-          opacity: 0.2;
-      }
-
-      @keyframes grow {
-	  to {
-              opacity: 0;
-	      transform: scale(3);
-
-	  }
-      }
-
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
       .clock {
-	  color: #555;
-	  z-index: -100;
 	  user-select: none;
-	  animation: grow 3s infinite alternate;
-	  font-weight: 100;
+	  font-weight: 700;
 	  font-size: 20vw;
 	  margin-top: 200px;
 
       }
       
-      @keyframes grow {
-	100% {
-	    transform: scale(1.02);
-	}
-      }
-
       .footer {
 	  color: #999;
 	  padding: 25px;
@@ -76,41 +67,18 @@
       a {
 	  color: #555;
       }
+
     </style>
   </head>
   <body>
     <div class="container">
 
-    <div class="clock"></div>
+    <div class="clock shadow"></div>
 
     <div class="footer">
     <small>Written, designed, and built by Rodion Sibov, a designer who you can find on <a href="https://github.com/rodionsibov">GitHub </a>, or good old-fashioned <a href="mailto:rodionsibov@gmail.com">Email.</small>
 </div>
     </div>
-    <script>
-
-      let colors = [
-	  'pink',
-	  'lightblue',
-	  'lightgreen'
-      ]
-      
-      function createCircle() {
-	  const circleEl = document.createElement('div')
-	  circleEl.classList.add('circle')
-	  circleEl.style.top = Math.floor(Math.random() * innerHeight) + "px";
-	  circleEl.style.left = Math.random() * innerWidth + "px";
-	  circleEl.style.background = colors[Math.floor(Math.random() * colors.length)];
-	  document.querySelector('.container').appendChild(circleEl);
-
-	  setTimeout(() => {
-	      circleEl.remove()
-	  }, 3000)
-      }
-
-      setInterval(createCircle, 30)
-</script>
-
 
     <script>
       
