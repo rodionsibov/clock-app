@@ -4,46 +4,92 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello, world!v2-test!</title>
+    <title>Hello, world!</title>
 
     <style>
-      .circle {
-	  width: 10px;
-	  height: 10px;
-	  top: 0;
-	  left: 0;
-	  border: 1px solid red;
-	  border-radius: 50%;
+
+      body {
+	  margin: 0;
+	  height: 100vh;
+	  text-align: center;
       }
+      
+      .container {
+	  overflow: hidden;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+
+      }
+
+      
+      .circle {
+
+	  border-radius: 50%;
+	  position: absolute;
+	  height: 20px;
+	  width: 20px;
+	  animation: grow 3s linear;
+          opacity: 0.2;
+      }
+
+      @keyframes grow {
+	  to {
+              opacity: 0;
+	      transform: scale(3);
+
+	  }
+      }
+
+      .clock {
+	  font-size: 12vw;
+	  margin-top: 200px;
+      }
+      
+      .footer {
+
+	  padding: 25px;
+	  position: fixed;
+	  bottom: 10px;
+      }
+
+      
     </style>
   </head>
   <body>
-
-
-
+    <div class="container">
 
     <div class="clock"></div>
 
-   
-    <small>Written, designed, and built by Rodion Sibov, a designer who you can find on <a href="https://github.com/rodionsibov/projects">GitHub </a>, or good old-fashioned <a href="mailto:rodionsibov@gmail.com">Email.</small>
-   
-
-    
+    <div class="footer">
+    <small>Written, designed, and built by Rodion Sibov, a designer who you can find on <a href="https://github.com/rodionsibov">GitHub </a>, or good old-fashioned <a href="mailto:rodionsibov@gmail.com">Email.</small>
+</div>
+    </div>
     <script>
 
+      let colors = [
+	  'pink',
+	  'lightblue',
+	  'lightgreen'
+      ]
+      
       function createCircle() {
-      const circleEl = document.createElement('div')
-      circleEl.classList.add('circle')
-      circleEl.style.top = Math.random() * innerHeight + "px";
-      circleEl.style.left = Math.random() * innerWidth + "px";
-      document.body.appendChild(circleEl);
-	
-      setTimeout(() => {
-      circleEl.remove()
-      }, 3000)
+	  const circleEl = document.createElement('div')
+	  circleEl.classList.add('circle')
+	  circleEl.style.top = Math.floor(Math.random() * innerHeight) + "px";
+	  circleEl.style.left = Math.random() * innerWidth + "px";
+	  circleEl.style.background = colors[Math.floor(Math.random() * colors.length)];
+	  document.querySelector('.container').appendChild(circleEl);
+
+	  setTimeout(() => {
+	      circleEl.remove()
+	  }, 3000)
       }
 
-      setInterval(createCircle, 300)
+      setInterval(createCircle, 30)
 </script>
 
 
