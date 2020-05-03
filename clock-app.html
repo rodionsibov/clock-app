@@ -8,11 +8,17 @@
 
     <style>
 
-      body {
+
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+     body {
 	  margin: 0;
 	  height: 100vh;
 	  text-align: center;
-      }
+	  font-family: 'Open Sans', sans-serif;
+
+
+     }
       
       .container {
 	  overflow: hidden;
@@ -45,6 +51,8 @@
       }
 
       .clock {
+	  color: 
+	  font-weight: bold;
 	  font-size: 12vw;
 	  margin-top: 200px;
       }
@@ -56,7 +64,9 @@
 	  bottom: 10px;
       }
 
-      
+      span {
+	  font-size: 5vw;
+      }
     </style>
   </head>
   <body>
@@ -98,9 +108,9 @@
       function displayTime() {
 	  let date = new Date();
 	  let time = date.toLocaleTimeString();
+	  console.log(date)
 
-
-	  document.querySelector('.clock').innerHTML = time;
+	  document.querySelector('.clock').innerHTML = `${time.slice(0, time.length - 2)}<span>${time.slice(time.length - 2)}</span>`;
       }
 
       displayTime();
