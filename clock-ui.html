@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clock UI Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+      
+    
+      * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	  font-family: 'Roboto', sans-serif;
+      }
+
+      main {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  min-height: 100vh;
+	  background: #060a1f; 
+      }
+
+      
+      footer {
+	  color: #888;
+	  padding: 10px;
+	  transition: 0.5s;
+      }
+
+      footer:hover {
+	  color: black;
+      }
+
+      a {
+	  color: dodgerblue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="clock">
+      <h2>The time is now</h2>
+      <div id="time">
+	<div><span id="hour">00</span><span>Hours</span></div>
+	<div><span id="minutes">00</span><span>Minutes</span></div>
+	<div><span id="seconds">00</span><span>Seconds</span></div>
+      </div>
+      </div>
+    </main>      
+
+    <footer>
+	<small>Written, designed, and built by Rodion Sibov, a designer who you can find on <a href="https://github.com/rodionsibov">GitHub </a>, or good old-fashioned <a href="mailto:rodionsibov@gmail.com">Email.</small>
+      </footer>
+
+    <script>
+      
+      function displayTime() {
+
+	  const now = new Date();
+	  const hours = now.getHours()
+	  const minutes = now.getMinutes()
+	  const seconds = now.getSeconds()
+
+      }
+
+      displayTime();
+      
+      const createClock = setInterval(displayTime, 1000);
+
+    </script>
+
+  </body>
+</html>
