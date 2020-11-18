@@ -45,9 +45,8 @@
   <body>
     
     <section>
-      <div class="clock">
-	<h1>00: 00: 00 AM</h1>
-      </div>
+      <div class="clock"></div>
+      <div class="format"></div>
     </section>
 
     
@@ -56,7 +55,19 @@
     </footer>
 
     <script>
-      
+
+      const clockEl = document.querySelector('.clock');
+
+      setInterval(generateTime, 1000);
+
+      function generateTime() {
+	  const date = new Date();
+	  const hour = date.getHours();
+	  const min = date.getMinutes();
+	  const sec = date.getSeconds();
+
+	  clockEl.innerHTML = `<h1>${hour} : ${min} : ${sec} AM</h1>`;
+      }
 
     </script>
   </body>
