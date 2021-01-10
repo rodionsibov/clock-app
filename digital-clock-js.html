@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+    <title>Digital Clock</title>
+
+    <style>
+
+      * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	  font-family: 'Concert One', cursive;
+
+      }
+
+      body {
+	  background: #222;
+	  display: grid;
+	  height: 100vh;
+	  place-items: center;
+      }
+
+      .clock {
+	  background: #333;
+	  width: 200px;
+	  padding: 10px 10px 30px 10px;
+	  text-align: center;
+	  border-radius: 10px;
+	  transition: 0.2s;
+	  cursor: pointer;
+      }
+
+      .clock:hover {
+	  background: #444;
+      }
+
+      .clock-time,
+      .clock-ampm {
+	  font-size: 30px;
+	  color: #eee;
+      }
+
+      .clock-time {
+	  font-size: 48px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="clock">
+      <span class="clock-time"></span>
+      <span class="clock-ampm"></span>
+    </div>
+    
+    <script>
+
+      class DigitalClock {
+	  constructor(element) {
+	      this.element = element;
+	  }
+
+	  start() {
+	      this.update();
+	      
+	      setInterval(() => {
+		  this.update(); 
+	      }, 500)
+	  }
+	  
+	  getTimeParts() {
+	      const now = new Date();
+
+	      return {
+		  hour: now.getHours() % 12 || 12,
+		  minutes: now.getMinutes(),
+		  isAm: now.getHours() < 12,
+	      };
+	  }
+
+	  update() {
+	      const parts = this.getTimeParts();
+	      const minuteFormatted = parts.minutes.toString().padStart(2, "0");
+	      const timeFormatted = `${parts.hour}:${minuteFormatted}`;
+	      const amPm = parts.isAm ? "AM" : "PM";
+
+	      this.element.querySelector(".clock-time").textContent = timeFormatted;
+	      this.element.querySelector(".clock-ampm").textContent = amPm;
+	  }
+	  
+      }
+
+      const clockElement = document.querySelector(".clock");
+      const clockObject = new DigitalClock(clockElement);
+
+      clockObject.start();
+      
+      </script>
+  </body>
+</html>
