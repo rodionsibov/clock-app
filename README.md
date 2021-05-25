@@ -1,5 +1,6 @@
 # clock-app
 
+1. https://rodionsibov.github.io/clock-app/flip-clock.html
 1. https://rodionsibov.github.io/clock-app/digital-clock-js.html
 1. https://rodionsibov.github.io/clock-app/digital-clock.html
 1. https://rodionsibov.github.io/clock-app/analog-clock.html
